@@ -15,4 +15,13 @@ public class Response extends AbstractPackage{
     public Response(Status status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder s = new StringBuilder(status.name());
+        if (hasData()){
+            s.append(" [").append(getData().length).append(" bytes]");
+        }
+        return s.toString();
+    }
 }

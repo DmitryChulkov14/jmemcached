@@ -12,7 +12,7 @@ public class DefaultObjectSerializer implements ObjectSerializer{
             return null;
         }
         if (!(object instanceof Serializable)){
-            throw new JMemcachedException("Class " + object.getClass().getName() + " sould implement java.io.Serializable interface");
+            throw new JMemcachedException("Class " + object.getClass().getName() + " should implement java.io.Serializable interface");
         }
         try {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();

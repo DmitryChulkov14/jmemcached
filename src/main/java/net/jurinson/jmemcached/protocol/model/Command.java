@@ -23,7 +23,7 @@ public enum Command {
                 return command;
             }
         }
-        throw new JMemcachedException("Unsupported byteCode for Version: " + byteCode);
+        throw new JMemcachedException("Unsupported byteCode for Command: " + byteCode);
     }
 
     public byte getByteCode(){
