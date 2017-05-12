@@ -7,7 +7,7 @@ import java.io.IOException;
 public class JMemcachedClientFactory {
 
     public static Client buildNewClient(String host, int port) throws IOException{
-        return null;
+        return new DefaultClient(new DefaultClientConfig(host, port));
     }
 
     public static Client buildNewClient(String host) throws IOException{
