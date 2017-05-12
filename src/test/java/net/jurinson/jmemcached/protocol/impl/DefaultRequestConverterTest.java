@@ -17,9 +17,9 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 
-public class DefaultRequestConvertorTest {
+public class DefaultRequestConverterTest {
 
-    private final DefaultRequestConvertor defaultRequestConvertor = new DefaultRequestConvertor();
+    private final DefaultRequestConverter defaultRequestConvertor = new DefaultRequestConverter();
 
     private byte[] requestClear = new byte[]{
             16,     // version

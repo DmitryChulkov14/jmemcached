@@ -7,9 +7,9 @@ import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.*;
 
-public class AbstractPackageConvertorTest {
+public class AbstractPackageConverterTest {
 
-    private AbstractPackageConvertor abstractPackageConvertor = new AbstractPackageConvertor() {
+    private AbstractPackageConverter abstractPackageConvertor = new AbstractPackageConverter() {
     };
 
     @Rule

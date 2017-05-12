@@ -10,9 +10,9 @@ import java.io.IOException;
 
 import static org.junit.Assert.*;
 
-public class DefaultResponseConvertorTest {
+public class DefaultResponseConverterTest {
 
-    private final DefaultResponseConvertor defaultResponseConvertor = new DefaultResponseConvertor();
+    private final DefaultResponseConverter defaultResponseConvertor = new DefaultResponseConverter();
 
     private byte[] responseWithoutData = new byte[]{
             16, // version

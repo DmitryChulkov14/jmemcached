@@ -1,13 +1,13 @@
 package net.jurinson.jmemcached.protocol.impl;
 
-import net.jurinson.jmemcached.protocol.ResponseConvertor;
+import net.jurinson.jmemcached.protocol.ResponseConverter;
 import net.jurinson.jmemcached.protocol.model.Response;
 import net.jurinson.jmemcached.protocol.model.Status;
 import org.apache.commons.io.IOUtils;
 
 import java.io.*;
 
-public class DefaultResponseConvertor extends AbstractPackageConvertor implements ResponseConvertor{
+public class DefaultResponseConverter extends AbstractPackageConverter implements ResponseConverter {
     @Override
     public Response readResponse(InputStream inputStream) throws IOException {
         DataInputStream dataInputStream = new DataInputStream(inputStream);

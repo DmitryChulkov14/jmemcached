@@ -3,7 +3,7 @@ package net.jurinson.jmemcached.protocol.impl;
 import net.jurinson.jmemcached.exception.JMemcachedException;
 import net.jurinson.jmemcached.protocol.model.Version;
 
-abstract class AbstractPackageConvertor {
+abstract class AbstractPackageConverter {
 
     protected void checkProtocolVersion(byte versionByte) {
         Version version = Version.valueOf(versionByte);
