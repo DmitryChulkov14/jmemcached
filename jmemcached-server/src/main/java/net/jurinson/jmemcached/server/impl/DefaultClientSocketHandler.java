@@ -27,7 +27,7 @@ class DefaultClientSocketHandler implements ClientSocketHandler {
         this.serverConfig = serverConfig;
     }
 
-    protected boolean isStopRun() {
+    protected boolean interrupted() {
         return Thread.interrupted();
     }
 
@@ -39,12 +39,12 @@ class DefaultClientSocketHandler implements ClientSocketHandler {
             CommandHandler commandHandler = serverConfig.getCommandHandler();
             InputStream inputStream = socket.getInputStream();
             OutputStream outputStream = socket.getOutputStream();
-            while (!isStopRun()) {
+            while (!interrupted()) {
                 try {
                     Request request = requestConverter.readRequest(inputStream);
                     Response response = commandHandler.handle(request);
                     responseConverter.writeResponse(outputStream, response);
-                    LOGGER.debug("Command {} -> {}", outputStream, response);
+                    LOGGER.debug("Command {} -> {}", request, response);
                 } catch (RuntimeException e) {
                     LOGGER.error("Handle request failed: " + e.getMessage(), e);
                 }

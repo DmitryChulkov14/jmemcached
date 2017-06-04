@@ -6,14 +6,15 @@ import net.jurinson.jmemcached.protocol.model.Request;
 import net.jurinson.jmemcached.protocol.model.Response;
 import net.jurinson.jmemcached.protocol.model.Status;
 import net.jurinson.jmemcached.server.CommandHandler;
+import net.jurinson.jmemcached.server.ServerConfig;
 import net.jurinson.jmemcached.server.Storage;
 
 class DefaultCommandHandler implements CommandHandler {
 
     private final Storage storage;
 
-    DefaultCommandHandler(Storage storage) {
-        this.storage = storage;
+    DefaultCommandHandler(ServerConfig serverConfig) {
+        this.storage = serverConfig.getStorage();
     }
 
     @Override

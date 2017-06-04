@@ -63,7 +63,7 @@ class DefaultServer implements Server {
                             executorService.submit(serverConfig.buildNewClientSocketHandler(clientSocket));
                             LOGGER.info("A new client connection established: " + clientSocket.getRemoteSocketAddress().toString());
                         } catch (RejectedExecutionException e) {
-                            LOGGER.info("All worker threads are busy: A new connection rejected: " + e.getMessage());
+                            LOGGER.error("All worker threads are busy. A new connection rejected: " + e.getMessage());
                             clientSocket.close();
                         }
                     } catch (IOException e) {
@@ -78,7 +78,7 @@ class DefaultServer implements Server {
         };
     }
 
-    protected Thread getShutDownHook() {
+    protected Thread getShutdownHook() {
         return new Thread(new Runnable() {
             @Override
             public void run() {
@@ -105,7 +105,7 @@ class DefaultServer implements Server {
         if (mainServerThread.getState() != Thread.State.NEW) {
             throw new JMemcachedException("Current JMemcached server already started or stopped! Please create a new server instance");
         }
-        Runtime.getRuntime().addShutdownHook(getShutDownHook());
+        Runtime.getRuntime().addShutdownHook(getShutdownHook());
         mainServerThread.start();
         LOGGER.info("Server started: " + serverConfig);
     }

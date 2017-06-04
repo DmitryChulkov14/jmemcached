@@ -47,7 +47,7 @@ class DefaultServerConfig implements ServerConfig {
     }
 
     protected CommandHandler createCommandHandler() {
-        return new DefaultCommandHandler(storage);
+        return new DefaultCommandHandler(this);
     }
 
     protected InputStream getClassPathResourceInputStream(String classPathResource) {
@@ -121,7 +121,7 @@ class DefaultServerConfig implements ServerConfig {
         try {
             int port = Integer.parseInt(value);
             if (port < 0 || port > 65535) {
-                throw new JMemcachedConfigException("jmemcached.server.port should be betwean 0 and 65535");
+                throw new JMemcachedConfigException("jmemcached.server.port should be between 0 and 65535");
             }
             return port;
         } catch (NumberFormatException e) {
@@ -134,7 +134,7 @@ class DefaultServerConfig implements ServerConfig {
         try {
             int threadCount = Integer.parseInt(value);
             if (threadCount < 1) {
-                throw new JMemcachedConfigException(propertyName + " should be betwean >= 1");
+                throw new JMemcachedConfigException(propertyName + " should be >= 1");
             }
             return threadCount;
         } catch (NumberFormatException e) {
